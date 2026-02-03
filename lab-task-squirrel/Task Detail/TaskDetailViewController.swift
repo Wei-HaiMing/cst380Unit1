@@ -8,8 +8,9 @@
 import UIKit
 import MapKit
 import PhotosUI
+import CoreLocation
 
-class TaskDetailViewController: UIViewController {
+class TaskDetailViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet private weak var completedImageView: UIImageView!
     @IBOutlet private weak var completedLabel: UILabel!
@@ -17,15 +18,24 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var attachPhotoButton: UIButton!
 
+    @IBOutlet weak var takePhotoButton: UIButton!
     // MapView outlet
     @IBOutlet private weak var mapView: MKMapView!
 
     @IBOutlet weak var viewPhoto: UIButton!
     var task: Task!
-
+    
+    private let locationManager = CLLocationManager()
+    private var currentLocation: CLLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
         // TODO: Register custom annotation view
         // Register custom annotation view
         mapView.register(TaskAnnotationView.self, forAnnotationViewWithReuseIdentifier: TaskAnnotationView.identifier)
@@ -69,10 +79,35 @@ class TaskDetailViewController: UIViewController {
 
         mapView.isHidden = !task.isComplete
         attachPhotoButton.isHidden = task.isComplete
+        takePhotoButton.isHidden = task.isComplete
         
         viewPhoto.isHidden = !task.isComplete
     }
 
+    @IBAction func didTapTakePhotoButton(_ sender: Any) {
+        if PHPhotoLibrary.authorizationStatus(for: .readWrite) != .authorized {
+            // Request photo library access
+            PHPhotoLibrary.requestAuthorization(for: .readWrite) { [weak self] status in
+                switch status {
+                case .authorized:
+                    // The user authorized access to their photo library
+                    // show picker (on main thread)
+                    DispatchQueue.main.async {
+                        self?.presentCameraTaker()
+                    }
+                default:
+                    // show settings alert (on main thread)
+                    DispatchQueue.main.async {
+                        // Helper method to show settings alert
+                        self?.presentGoToSettingsAlert()
+                    }
+                }
+            }
+        } else {
+            // Show camera
+            presentCameraTaker()
+        }
+    }
     @IBAction func didTapAttachPhotoButton(_ sender: Any) {
         // If authorized, show photo picker, otherwise request authorization.
         // If authorization denied, show alert with option to go to settings to update authorization.
@@ -100,7 +135,18 @@ class TaskDetailViewController: UIViewController {
         }
 
     }
+    
+    private func presentCameraTaker(){
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.cameraCaptureMode = .photo          // or .video
+        picker.allowsEditing = false               // true if you want crop UI
+        picker.delegate = self
 
+        present(picker, animated: true)
+        
+    }
+    
     private func presentImagePicker() {
         // Create a configuration object
         var config = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
@@ -258,4 +304,43 @@ extension TaskDetailViewController: MKMapViewDelegate {
         annotationView.configure(with: task.image)
         return annotationView
     }
+}
+extension TaskDetailViewController: UIImagePickerControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true)
+        
+        guard let image = (info[.editedImage] as? UIImage) ?? (info[.originalImage] as? UIImage) else {
+            return
+        }
+
+        // Get image location
+        // PHAsset contains metadata about an image or video (ex. location, size, etc.)
+
+        let location = currentLocation  
+        
+        print("📍 Image location coordinate: \(location?.coordinate, default: "yeet")")
+
+        
+        DispatchQueue.main.async { [weak self] in
+
+            // Set the picked image and location on the task
+            self?.task.set(image, with: location)
+
+            // Update the UI since we've updated the task
+            self?.updateUI()
+
+            // Update the map view since we now have an image an location
+            self?.updateMapView()
+        }
+    }
+}
+extension TaskDetailViewController: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+      currentLocation = locations.last
+    }
+
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+      print("Location error: \(error)")
+  }
 }

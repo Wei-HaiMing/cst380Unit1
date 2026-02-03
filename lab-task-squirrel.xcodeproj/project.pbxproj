@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364526BB2F2C1ACD0061C964 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364526B92F2C1ACD0061C964 /* PhotoViewController.swift */; };
 		CB57503A2929E62C00890962 /* TaskAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5750392929E62C00890962 /* TaskAnnotationView.swift */; };
 		CB602B9929247359006C6727 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB602B9829247359006C6727 /* AppDelegate.swift */; };
 		CB602B9B29247359006C6727 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB602B9A29247359006C6727 /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		364526B92F2C1ACD0061C964 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		CB5750392929E62C00890962 /* TaskAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAnnotationView.swift; sourceTree = "<group>"; };
 		CB602B9529247359006C6727 /* lab-task-squirrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lab-task-squirrel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB602B9829247359006C6727 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,10 +38,6 @@
 		CB9D9ED9292489E000F8F51B /* TaskComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskComposeViewController.swift; path = ../TaskComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		36138EE22F2979FA00E6637F /* Photo View */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Photo View"; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		CB602B9229247359006C6727 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -51,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		364526BA2F2C1ACD0061C964 /* Photo View */ = {
+			isa = PBXGroup;
+			children = (
+				364526B92F2C1ACD0061C964 /* PhotoViewController.swift */,
+			);
+			path = "Photo View";
+			sourceTree = "<group>";
+		};
 		CB602B8C29247359006C6727 = {
 			isa = PBXGroup;
 			children = (
@@ -76,7 +82,7 @@
 				CB9D9ED82924896400F8F51B /* Task Compose */,
 				CB9D9ED5292488BC00F8F51B /* Task Detail */,
 				CB9D9ED2292483C400F8F51B /* Models */,
-				36138EE22F2979FA00E6637F /* Photo View */,
+				364526BA2F2C1ACD0061C964 /* Photo View */,
 				CB602BA32924735C006C6727 /* LaunchScreen.storyboard */,
 				CB602B9E29247359006C6727 /* Main.storyboard */,
 				CB602BA12924735C006C6727 /* Assets.xcassets */,
@@ -133,9 +139,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				36138EE22F2979FA00E6637F /* Photo View */,
 			);
 			name = "lab-task-squirrel";
 			productName = "lab-task-squirrel";
@@ -198,6 +201,7 @@
 				CB602B9D29247359006C6727 /* TaskListViewController.swift in Sources */,
 				CB9D9EDA292489E000F8F51B /* TaskComposeViewController.swift in Sources */,
 				CB57503A2929E62C00890962 /* TaskAnnotationView.swift in Sources */,
+				364526BB2F2C1ACD0061C964 /* PhotoViewController.swift in Sources */,
 				CB602B9929247359006C6727 /* AppDelegate.swift in Sources */,
 				CB602B9B29247359006C6727 /* SceneDelegate.swift in Sources */,
 				CB9D9ED1292483BC00F8F51B /* Task.swift in Sources */,

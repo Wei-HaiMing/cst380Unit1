@@ -22,7 +22,7 @@ class Task {
         self.description = description
     }
 
-    func set(_ image: UIImage, with location: CLLocation) {
+    func set(_ image: UIImage, with location: CLLocation?) {
         self.image = image
         self.imageLocation = location
     }

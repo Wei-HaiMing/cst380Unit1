@@ -2,8 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to pin photo location data on a completed task when using your camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need access to your photos in order to add a photo to complete a task.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to your camera to add the photo to the map.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
