@@ -26,7 +26,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xL2rCkjZpUQ?si=YmKAFzewB4XN_ImC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Video Walkthrough](http://img.youtube.com/vi/xL2rCkjZpUQ/0.jpg)](https://www.youtube.com/watch?v=xL2rCkjZpUQ)
 
 ## Notes
 
