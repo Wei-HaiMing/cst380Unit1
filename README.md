@@ -2,23 +2,23 @@
 
 Submitted by: **Armando Vega**
 
-**Name of your app** is an app that ... [TODO] 
+**Scavenger Hunt** is an app that allows its users to create to-do tasks that they can then mark as completed by attaching an image at the location that they completed the task at.
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] App displays list of hard-coded tasks
-- [ ] When a task is tapped it navigates the user to a task detail view
-- [ ] When user adds photo to complete the tasks, it marks the task as complete
-- [ ] When adding photo of task, the location is added
-- [ ] User returns to home page (list of tasks) and the status of your task is updated to complete
+- [ X ] App displays list of hard-coded tasks
+- [ X ] When a task is tapped it navigates the user to a task detail view
+- [ X ] When user adds photo to complete the tasks, it marks the task as complete
+- [ X ] When adding photo of task, the location is added
+- [ X  ] User returns to home page (list of tasks) and the status of your task is updated to complete
  
 The following **optional** features are implemented:
 
-- [ ] User can launch camera to snap a picture	
+- [ X ] User can launch camera to snap a picture	
 
 The following **additional** features are implemented:
 
@@ -26,13 +26,11 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove this reminder once you upload your README. 
-
-[Guide]](https://www.youtube.com/watch?v=GA92eKlYio4) .
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xL2rCkjZpUQ?si=YmKAFzewB4XN_ImC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+It was rather difficult to understand how to get the location of an image to be attached to a picture just taken with the camera, however by using the CoreLocation library, I was able to use the user's current location as the location data to attach to the image.
 
 ## License
 
