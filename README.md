@@ -26,7 +26,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-<img src='Screen%20Recording%202026-02-08%20at%2012.46.16%20PM.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='Screen%20Recording%202026-02-08%20at%2012.46.16%E2%80%AFPM.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
