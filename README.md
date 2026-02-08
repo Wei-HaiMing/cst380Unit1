@@ -26,7 +26,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-[![Video Walkthrough](http://img.youtube.com/vi/xL2rCkjZpUQ/0.jpg)](https://www.youtube.com/watch?v=xL2rCkjZpUQ)
+<img src='Screen Recording 2026-02-08 at 12.46.16 PM.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
